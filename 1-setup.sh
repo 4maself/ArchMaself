@@ -238,6 +238,8 @@ PKGS=(
 'zsh'
 'zsh-syntax-highlighting'
 'zsh-autosuggestions'
+'openssh'
+'konsave'
 )
 
 for PKG in "${PKGS[@]}"; do
