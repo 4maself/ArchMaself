@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------------------------
-#   █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
-#  ██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
-#  ███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
-#  ██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
-#  ██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
-#  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
+#░█████╗░██████╗░░█████╗░██╗░░██╗███╗░░░███╗░█████╗░░██████╗███████╗██╗░░░░░███████╗
+#██╔══██╗██╔══██╗██╔══██╗██║░░██║████╗░████║██╔══██╗██╔════╝██╔════╝██║░░░░░██╔════╝
+#███████║██████╔╝██║░░╚═╝███████║██╔████╔██║███████║╚█████╗░█████╗░░██║░░░░░█████╗░░
+#██╔══██║██╔══██╗██║░░██╗██╔══██║██║╚██╔╝██║██╔══██║░╚═══██╗██╔══╝░░██║░░░░░██╔══╝░░
+#██║░░██║██║░░██║╚█████╔╝██║░░██║██║░╚═╝░██║██║░░██║██████╔╝███████╗███████╗██║░░░░░
+#╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═════╝░╚══════╝╚══════╝╚═╝░░░░░
 #-------------------------------------------------------------------------
 
 echo -e "\nINSTALLING AUR SOFTWARE\n"
@@ -17,46 +17,63 @@ git clone "https://aur.archlinux.org/yay.git"
 cd ${HOME}/yay
 makepkg -si --noconfirm
 cd ~
-touch "$HOME/.cache/zshhistory"
-git clone "https://github.com/ChrisTitusTech/zsh"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
-ln -s "$HOME/zsh/.zshrc" $HOME/.zshrc
+# touch "$HOME/.cache/zshhistory"
+# git clone "https://github.com/ChrisTitusTech/zsh"
+# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+# ln -s "$HOME/zsh/.zshrc" $HOME/.zshrc
 
 PKGS=(
 'autojump'
-'awesome-terminal-fonts'
-'brave-bin' # Brave Browser
+'firefox'
+'chromium'
 'dxvk-bin' # DXVK DirectX to Vulcan
-'github-desktop-bin' # Github Desktop sync
-'lightly-git'
-'mangohud' # Gaming FPS Counter
-'mangohud-common'
-'nerd-fonts-fira-code'
-'nordic-darker-standard-buttons-theme'
-'nordic-darker-theme'
-'nordic-kde-git'
-'nordic-theme'
+'noto-fonts'
+'noto-fonts-extra'
+'noto-fonts-sc'
 'noto-fonts-emoji'
 'papirus-icon-theme'
 'ocs-url' # install packages from websites
-'sddm-nordic-theme-git'
-'snapper-gui-git'
-'ttf-droid'
-'ttf-hack'
-'ttf-meslo' # Nerdfont package
 'ttf-roboto'
-'zoom' # video conferences
-'snap-pac'
+'android-tools'
+'arduino'
+'arduino-avr-core'
+'arduino-builder'
+'arduino-ctags'
+'sublime-text-4'
+'spotify'
+'nextcloud-client'
+'electron'
+'discord_arch_electron'
+'docker'
+'element-desktop'
+'ffmpeg'
+'ffmpeg-compat-57'
+'galculator'
+'signal-desktop'
+'evolution'
+'nemo'
+'nemo-fileroller'
+'nemo-image-converter'
+'nemo-preview'
+'nemo-qt-components'
+'nemo-share'
+'obs-studio'
+'update-grub'
+'virtio-win'
+'vlc'
+'wireguard-tools'
+'wireshark-qt'
 )
+
 
 for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
 done
 
 export PATH=$PATH:~/.local/bin
-cp -r $HOME/ArchTitus/dotfiles/* $HOME/.config/
+cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
 pip install konsave
-konsave -i $HOME/ArchTitus/kde.knsv
+konsave -i $HOME/ArchMaself/kde.knsv
 sleep 1
 konsave -a kde
 

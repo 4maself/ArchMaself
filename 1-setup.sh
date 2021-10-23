@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------------------------
-#   █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
-#  ██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
-#  ███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
-#  ██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
-#  ██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
-#  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
+#░█████╗░██████╗░░█████╗░██╗░░██╗███╗░░░███╗░█████╗░░██████╗███████╗██╗░░░░░███████╗
+#██╔══██╗██╔══██╗██╔══██╗██║░░██║████╗░████║██╔══██╗██╔════╝██╔════╝██║░░░░░██╔════╝
+#███████║██████╔╝██║░░╚═╝███████║██╔████╔██║███████║╚█████╗░█████╗░░██║░░░░░█████╗░░
+#██╔══██║██╔══██╗██║░░██╗██╔══██║██║╚██╔╝██║██╔══██║░╚═══██╗██╔══╝░░██║░░░░░██╔══╝░░
+#██║░░██║██║░░██║╚█████╔╝██║░░██║██║░╚═╝░██║██║░░██║██████╔╝███████╗███████╗██║░░░░░
+#╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═════╝░╚══════╝╚══════╝╚═╝░░░░░
 #-------------------------------------------------------------------------
 echo "--------------------------------------"
 echo "--          Network Setup           --"
@@ -33,7 +33,7 @@ echo "       Setup Language to US and set locale       "
 echo "-------------------------------------------------"
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
-timedatectl --no-ask-password set-timezone America/Chicago
+timedatectl --no-ask-password set-timezone Europe/Amsterdam
 timedatectl --no-ask-password set-ntp 1
 localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_COLLATE="" LC_TIME="en_US.UTF-8"
 
@@ -73,7 +73,6 @@ PKGS=(
 'btrfs-progs'
 'celluloid' # video players
 'cmatrix'
-'code' # Visual Studio code
 'cronie'
 'cups'
 'dhcpcd'
@@ -93,6 +92,7 @@ PKGS=(
 'fuse3'
 'fuseiso'
 'gamemode'
+'firewalld'
 'gcc'
 'gimp' # Photo editing
 'git'
@@ -101,6 +101,8 @@ PKGS=(
 'groff'
 'grub'
 'grub-customizer'
+'gnome-keyring'
+'gwenview'
 'gst-libav'
 'gst-plugins-good'
 'gst-plugins-ugly'
@@ -109,7 +111,6 @@ PKGS=(
 'iptables-nft'
 'jdk-openjdk' # Java 17
 'kactivitymanagerd'
-'kate'
 'kvantum-qt5'
 'kcalc'
 'kcharselect'
@@ -117,7 +118,9 @@ PKGS=(
 'kde-cli-tools'
 'kde-gtk-config'
 'kdecoration'
+'kdeconnect'
 'kdenetwork-filesharing'
+'kdenlive'
 'kdeplasma-addons'
 'kdesdk-thumbnailers'
 'kdialog'
@@ -130,6 +133,7 @@ PKGS=(
 'kitty'
 'kmenuedit'
 'kmix'
+'kmywallet'
 'konsole'
 'kscreen'
 'kscreenlocker'
@@ -143,6 +147,7 @@ PKGS=(
 'kwin'
 'kwrite'
 'kwrited'
+'latte-dock'
 'layer-shell-qt'
 'libguestfs'
 'libkscreen'
@@ -204,13 +209,16 @@ PKGS=(
 'swtpm'
 'synergy'
 'systemsettings'
-'terminus-font'
+'terminator'
 'texinfo'
 'traceroute'
+'transmission-qt'
+'timeshift'
 'ufw'
 'unrar'
 'unzip'
 'usbutils'
+'v4l-utils'
 'vde2'
 'vim'
 'virt-manager'
@@ -267,14 +275,14 @@ fi
 echo -e "\nDone!\n"
 if ! source install.conf; then
 	read -p "Please enter username:" username
-echo "username=$username" >> ${HOME}/ArchTitus/install.conf
+echo "username=$username" >> ${HOME}/ArchMaself/install.conf
 fi
 if [ $(whoami) = "root"  ];
 then
     useradd -m -G wheel,libvirt -s /bin/bash $username 
 	passwd $username
-	cp -R /root/ArchTitus /home/$username/
-    chown -R $username: /home/$username/ArchTitus
+	cp -R /root/ArchMaself /home/$username/
+    chown -R $username: /home/$username/ArchMaself
 else
 	echo "You are already a user proceed with aur installs"
 fi
