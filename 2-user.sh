@@ -18,11 +18,6 @@ cd ${HOME}/yay
 makepkg -si --noconfirm
 cd ~
 
-
-git clone https://github.com/yeyushengfan258/Aura-kde.git aura
-cd aura/sddm
-./install.sh
-cd -
 # touch "$HOME/.cache/zshhistory"
 # git clone "https://github.com/ChrisTitusTech/zsh"
 # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
@@ -83,9 +78,6 @@ pip install konsave
 konsave -i $HOME/ArchMaself/kde.knsv
 sleep 1
 konsave -a kde
-
-rm -R $HOME/yay
-rm -R $HOME/aura
 
 echo -e "\nDone!\n"
 exit

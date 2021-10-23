@@ -247,6 +247,13 @@ for PKG in "${PKGS[@]}"; do
     sudo pacman -S "$PKG" --noconfirm --needed
 done
 
+echo "Installing aura theme"
+git clone https://github.com/yeyushengfan258/Aura-kde.git aura
+cd aura/sddm
+./install.sh
+cd -
+rm -rf aura
+
 #
 # determine processor type and install microcode
 # 

@@ -25,7 +25,7 @@ EOF
 
 # ------------------------------------------------------------------------
 
-echo -e "\nEnabling the cups service daemon so we can print"
+# echo -e "\nEnabling the cups service daemon so we can print"
 
 # systemctl enable cups.service
 sudo ntpd -qg
