@@ -63,6 +63,7 @@ PKGS=(
 'vlc'
 'wireguard-tools'
 'wireshark-qt'
+'sweet-kde-git'
 )
 
 
