@@ -253,7 +253,6 @@ cd aura/sddm
 ./install.sh
 cd -
 rm -rf aura
-sed -i 's/Current=Nordic/Current=Aura/' /etc/sddm.conf
 
 # wget https://dl1.pling.com/api/files/download/j/Sweet.tar.xz
 mkdir -p /usr/share/plasma/desktoptheme

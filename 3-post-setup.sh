@@ -20,7 +20,7 @@ echo -e "\nSetup SDDM Theme"
 
 sudo cat <<EOF > /etc/sddm.conf
 [Theme]
-Current=Nordic
+Current=Aura
 EOF
 
 # ------------------------------------------------------------------------

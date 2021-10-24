@@ -78,6 +78,9 @@ cp $HOME/ArchMaself/home/* $HOME/
 cp $HOME/ArchMaself/home/.bashrc $HOME/.bashrc
 cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
 
+mkdir -p /usr/share/plasma/desktoptheme
+tar -xf $HOME/ArchMaself/Sweet.tar.xz -C /usr/share/plasma/desktoptheme/
+
 pip install konsave
 konsave -i $HOME/ArchMaself/kde.knsv
 sleep 1
