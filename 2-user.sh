@@ -73,8 +73,8 @@ done
 
 export PATH=$PATH:~/.local/bin
 echo 'Setting personalizations'
-sudo cp $HOME/ArchMaself/home $HOME
-sudo cp -R $HOME/ArchMaself/dotfiles $HOME/.config
+cp $HOME/ArchMaself/home/* $HOME/.
+cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
 
 pip install konsave
 konsave -i $HOME/ArchMaself/kde.knsv

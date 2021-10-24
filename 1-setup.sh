@@ -35,7 +35,7 @@ sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 timedatectl --no-ask-password set-timezone Europe/Amsterdam
 timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_COLLATE="" LC_TIME="en_US.UTF-8"
+localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_COLLATE="C" LC_TIME="en_US.UTF-8"
 
 # Set keymaps
 localectl --no-ask-password set-keymap us
@@ -256,7 +256,7 @@ cd -
 rm -rf aura
 
 wget https://gitreleases.dev/gh/EliverLara/Sweet/latest/Sweet.tar.xz
-plasmapkg2 -i Sweet.tar.xz
+tar -xf Sweet.tar.xz /usr/share/plasma/desktoptheme/
 rm Sweet.tar.xz
 
 #
