@@ -64,6 +64,7 @@ PKGS=(
 'vlc'
 'wireguard-tools'
 'wireshark-qt'
+'kmywallet'
 )
 
 
