@@ -133,7 +133,6 @@ PKGS=(
 'kitty'
 'kmenuedit'
 'kmix'
-'kmywallet'
 'konsole'
 'kscreen'
 'kscreenlocker'
