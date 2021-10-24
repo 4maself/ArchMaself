@@ -254,10 +254,10 @@ cd aura/sddm
 cd -
 rm -rf aura
 
-wget https://gitreleases.dev/gh/EliverLara/Sweet/latest/Sweet.tar.xz
-mkdir -p /usr/share/plasma/desktoptheme
-tar -xf Sweet.tar.xz -C /usr/share/plasma/desktoptheme/
-rm Sweet.tar.xz
+# wget https://dl1.pling.com/api/files/download/j/Sweet.tar.xz
+# mkdir -p /usr/share/plasma/desktoptheme
+# tar -xf Sweet.tar.xz -C /usr/share/plasma/desktoptheme/
+# rm Sweet.tar.xz
 
 #
 # determine processor type and install microcode
