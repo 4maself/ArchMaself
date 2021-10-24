@@ -253,10 +253,11 @@ cd aura/sddm
 ./install.sh
 cd -
 rm -rf aura
+sed -i 's/Current=Nordic/Current=Aura/' /etc/sddm.conf
 
 # wget https://dl1.pling.com/api/files/download/j/Sweet.tar.xz
-# mkdir -p /usr/share/plasma/desktoptheme
-# tar -xf Sweet.tar.xz -C /usr/share/plasma/desktoptheme/
+mkdir -p /usr/share/plasma/desktoptheme
+tar -xf /root/ArchMaself/Sweet.tar.xz -C /usr/share/plasma/desktoptheme/
 # rm Sweet.tar.xz
 
 #

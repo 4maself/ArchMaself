@@ -294,4 +294,6 @@ eval `ssh-agent -s`
 ssh-add ~/.ssh/id_git
 clear
 
+export PATH="$HOME/.local/bin:$PATH"
+
 alias sys-update="yay -Syyuu"

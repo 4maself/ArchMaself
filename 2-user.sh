@@ -74,7 +74,8 @@ done
 
 export PATH=$PATH:~/.local/bin
 echo 'Setting personalizations'
-cp $HOME/ArchMaself/home/* $HOME/.
+cp $HOME/ArchMaself/home/* $HOME/
+cp $HOME/ArchMaself/home/.bashrc $HOME/.bashrc
 cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
 
 pip install konsave
