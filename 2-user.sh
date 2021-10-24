@@ -73,7 +73,10 @@ for PKG in "${PKGS[@]}"; do
 done
 
 export PATH=$PATH:~/.local/bin
-cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
+echo 'Setting personalizations'
+sudo cp $HOME/ArchMaself/home $HOME
+sudo cp -R $HOME/ArchMaself/dotfiles $HOME/.config
+
 pip install konsave
 konsave -i $HOME/ArchMaself/kde.knsv
 sleep 1

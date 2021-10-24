@@ -240,6 +240,7 @@ PKGS=(
 'zsh-autosuggestions'
 'openssh'
 'konsave'
+'wget'
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -247,12 +248,16 @@ for PKG in "${PKGS[@]}"; do
     sudo pacman -S "$PKG" --noconfirm --needed
 done
 
-echo "Installing aura theme"
+echo "Installing themes"
 git clone https://github.com/yeyushengfan258/Aura-kde.git aura
 cd aura/sddm
 ./install.sh
 cd -
 rm -rf aura
+
+wget https://gitreleases.dev/gh/EliverLara/Sweet/latest/Sweet.tar.xz
+plasmapkg2 -i Sweet.tar.xz
+rm Sweet.tar.xz
 
 #
 # determine processor type and install microcode
