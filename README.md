@@ -1,4 +1,6 @@
-# ArchTitus Installer Script
+# ArchMaself Installer Script
+
+> Forked from https://github.com/ChrisTitusTech/ArchTitus with personalizations to my own taste
 
 <img src="https://i.imgur.com/YiNMnan.png" />
 
@@ -7,19 +9,19 @@ This README contains the steps I do to install and configure a fully-functional 
 ---
 ## Create Arch ISO or Use Image
 
-Download ArchISO from <https://archlinux.org/download/> and put on a USB drive with Ventoy or Etcher
+Download ArchISO from <https://archlinux.org/download/> and put on a USB drive with DD, Ventoy or Etcher
 
-If you don't want to build using this script I did create an image @ <https://www.christitus.com/arch-titus>
+[comment]: <> (If you don't want to build using this script I did create an image @ <https://www.christitus.com/arch-titus>)
 
 ## Boot Arch ISO
 
 From initial Prompt type the following commands:
 
 ```
-pacman -Sy git
-git clone https://github.com/ChrisTitusTech/ArchTitus
-cd ArchTitus
-./archtitus.sh
+pacman -Sy git --noconfirm
+git clone https://github.com/4maself/ArchMaself.git ArchMaself
+cd ArchMaself
+./archmaself.sh
 ```
 
 ### System Description
@@ -32,7 +34,7 @@ __[Arch Linux Installation Guide](https://github.com/rickellis/Arch-Linux-Instal
 ### No Wifi
 
 ```bash
-sudo wifi-menu`
+sudo wifi-menu
 ```
 
 ## Credits
