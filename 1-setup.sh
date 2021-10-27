@@ -17,6 +17,7 @@ echo "Setting up mirrors for optimal download          "
 echo "-------------------------------------------------"
 pacman -S --noconfirm pacman-contrib curl
 pacman -S --noconfirm reflector rsync
+iso=$(curl -4 ifconfig.co/country-iso)
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 
 nc=$(grep -c ^processor /proc/cpuinfo)
@@ -54,7 +55,9 @@ pacman -Sy --noconfirm
 echo -e "\nInstalling Base System\n"
 
 PKGS=(
-'mesa' # Essential Xorg First
+'linux'
+'linux-firmware'
+'linux-headers'
 'xorg'
 'xorg-server'
 'xorg-apps'
@@ -64,11 +67,13 @@ PKGS=(
 'xterm'
 'plasma-desktop' # KDE Load second
 'plasma-meta'
+'mesa' # Essential Xorg First
 'alsa-plugins' # audio plugins
 'alsa-utils' # audio utils
 'ark' # compression
 'audiocd-kio' 
 'autoconf' # build
+'make'
 'automake' # build
 'base'
 'bash-completion'
@@ -86,12 +91,12 @@ PKGS=(
 'cmatrix'
 'cronie'
 'cups'
+'dbus-python'
 'dialog'
 'discover'
 'dolphin'
 'dosfstools'
 'efibootmgr' # EFI boot
-'egl-wayland'
 'exfat-utils'
 'flex'
 'fuse2'
@@ -106,6 +111,8 @@ PKGS=(
 'gptfdisk'
 'grub'
 'grub-customizer'
+'gnome-keyring'
+'gwenview'
 'gst-libav'
 'gst-plugins-good'
 'gst-plugins-ugly'
@@ -115,19 +122,16 @@ PKGS=(
 'jdk-openjdk' # Java 17
 'kvantum-qt5'
 'kde-gtk-config'
-'kitty'
+'kwallet'
+'kwalletmanager'
 'latte-dock'
 'layer-shell-qt'
 'libnewt'
 'libtool'
-'linux'
-'linux-firmware'
-'linux-headers'
 'lsof'
 'lutris'
 'lzop'
 'm4'
-'make'
 'milou'
 'nano'
 'neofetch'
