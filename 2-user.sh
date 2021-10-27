@@ -65,6 +65,9 @@ PKGS=(
 'vlc'
 'wireguard-tools'
 'kmywallet'
+'candy-icons-git'
+'sweet-kde-git'
+'sweet-kde-theme-mars-git'
 )
 
 
@@ -77,10 +80,6 @@ echo 'Setting personalizations'
 cp $HOME/ArchMaself/home/* $HOME/
 cp $HOME/ArchMaself/home/.bashrc $HOME/.bashrc
 cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
-
-mkdir -p $HOME/.local/share/plasma/desktoptheme/
-tar -xf $HOME/ArchMaself/Sweet.tar.xz -C $HOME/.local/share/plasma/desktoptheme/
-tar -xf $HOME/ArchMaself/Sweet.tar.xz -C $HOME/.local/share/plasma/look-and-feel/
 
 pip install konsave
 konsave -i $HOME/ArchMaself/kde.knsv
