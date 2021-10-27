@@ -148,7 +148,7 @@ PKGS=(
 'patch'
 'picom'
 'pkgconf'
-'powerline-fonts'
+'powerline-fonts-git'
 'print-manager'
 'pulseaudio'
 'pulseaudio-alsa'
