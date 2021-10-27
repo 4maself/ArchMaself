@@ -33,6 +33,7 @@ PKGS=(
 'noto-fonts-sc'
 'noto-fonts-emoji'
 'papirus-icon-theme'
+'plasma-pa'
 'ocs-url' # install packages from websites
 'ttf-roboto'
 'android-tools'

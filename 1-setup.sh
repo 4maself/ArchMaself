@@ -17,17 +17,18 @@ echo "Setting up mirrors for optimal download          "
 echo "-------------------------------------------------"
 pacman -S --noconfirm pacman-contrib curl
 pacman -S --noconfirm reflector rsync
-iso=$(curl -4 ifconfig.co/country-iso)
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 
 nc=$(grep -c ^processor /proc/cpuinfo)
 echo "You have " $nc" cores."
 echo "-------------------------------------------------"
 echo "Changing the makeflags for "$nc" cores."
+TOTALMEM=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
+if [[  $TOTALMEM -gt 8000000 ]]; then
 sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$nc"/g' /etc/makepkg.conf
 echo "Changing the compression settings for "$nc" cores."
 sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g' /etc/makepkg.conf
-
+fi
 echo "-------------------------------------------------"
 echo "       Setup Language to US and set locale       "
 echo "-------------------------------------------------"
@@ -35,7 +36,7 @@ sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 timedatectl --no-ask-password set-timezone Europe/Amsterdam
 timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_COLLATE="C" LC_TIME="en_US.UTF-8"
+localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TIME="en_US.UTF-8"
 
 # Set keymaps
 localectl --no-ask-password set-keymap us
@@ -113,33 +114,7 @@ PKGS=(
 'jdk-openjdk' # Java 17
 'kvantum-qt5'
 'kde-gtk-config'
-'kdecoration'
-'kdeconnect'
-'kdenetwork-filesharing'
-'kdenlive'
-'kdeplasma-addons'
-'kdesdk-thumbnailers'
-'kdialog'
-'keychain'
-'kfind'
-'kgamma5'
-'kgpg'
-'khotkeys'
-'kinfocenter'
 'kitty'
-'konsole'
-'kscreen'
-'kscreenlocker'
-'ksshaskpass'
-'ksystemlog'
-'ksystemstats'
-'kwallet-pam'
-'kwalletmanager'
-'kwayland-integration'
-'kwayland-server'
-'kwin'
-'kwrite'
-'kwrited'
 'latte-dock'
 'layer-shell-qt'
 'libnewt'
@@ -157,6 +132,7 @@ PKGS=(
 'neofetch'
 'networkmanager'
 'ntfs-3g'
+'ntp'
 'okular'
 'openbsd-netcat'
 'openssh'
@@ -208,7 +184,6 @@ PKGS=(
 'zsh'
 'zsh-syntax-highlighting'
 'zsh-autosuggestions'
-'openssh'
 'konsave'
 )
 
@@ -224,11 +199,7 @@ cd aura/sddm
 cd -
 rm -rf aura
 
-# wget https://dl1.pling.com/api/files/download/j/Sweet.tar.xz
 # TODO figure out how to install the theme through either kde store or git
-mkdir -p /usr/share/plasma/desktoptheme
-tar -xf /root/ArchMaself/Sweet.tar.xz -C /usr/share/plasma/desktoptheme/
-# rm Sweet.tar.xz
 
 #
 # determine processor type and install microcode
