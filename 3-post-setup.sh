@@ -23,6 +23,11 @@ sudo cat <<EOF > /etc/sddm.conf
 Current=Aura
 EOF
 
+sudo cat <<EOF > /etc/locale.conf
+LANG=en_US.UTF-8conf
+LC_COLLATE=C
+EOF
+
 # ------------------------------------------------------------------------
 
 echo -e "\nEnabling essential services"

@@ -80,6 +80,8 @@ echo 'Setting personalizations'
 cp $HOME/ArchMaself/home/* $HOME/
 cp $HOME/ArchMaself/home/.bashrc $HOME/.bashrc
 cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
+# This will override locale. Clearning this for /etc/locale.conf to use powerline (see 3-post-setup.sh)
+rm $HOME/.config/plasma-localerc
 
 pip install konsave
 konsave -i $HOME/ArchMaself/kde.knsv
