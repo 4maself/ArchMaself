@@ -23,16 +23,23 @@ sudo cat <<EOF > /etc/sddm.conf
 Current=Aura
 EOF
 
+sudo cat <<EOF > /etc/locale.conf
+LANG=en_US.UTF-8conf
+LC_COLLATE=C
+EOF
+
 # ------------------------------------------------------------------------
 
-# echo -e "\nEnabling the cups service daemon so we can print"
+echo -e "\nEnabling essential services"
 
+# TODO Insert timed startup for cups
 # systemctl enable cups.service
 sudo ntpd -qg
 sudo systemctl enable ntpd.service
 sudo systemctl disable dhcpcd.service
 sudo systemctl stop dhcpcd.service
 sudo systemctl enable NetworkManager.service
+# sudo systemctl enable bluetooth
 echo "
 ###############################################################################
 # Cleaning

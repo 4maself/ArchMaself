@@ -33,6 +33,7 @@ PKGS=(
 'noto-fonts-sc'
 'noto-fonts-emoji'
 'papirus-icon-theme'
+'plasma-pa'
 'ocs-url' # install packages from websites
 'ttf-roboto'
 'android-tools'
@@ -79,9 +80,8 @@ echo 'Setting personalizations'
 cp $HOME/ArchMaself/home/* $HOME/
 cp $HOME/ArchMaself/home/.bashrc $HOME/.bashrc
 cp -r $HOME/ArchMaself/dotfiles/* $HOME/.config/
-
-# mkdir -p /usr/share/plasma/desktoptheme
-# tar -xf $HOME/ArchMaself/Sweet.tar.xz -C /usr/share/plasma/desktoptheme/
+# This will override locale. Clearning this for /etc/locale.conf to use powerline (see 3-post-setup.sh)
+rm $HOME/.config/plasma-localerc
 
 pip install konsave
 konsave -i $HOME/ArchMaself/kde.knsv
