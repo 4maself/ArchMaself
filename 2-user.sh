@@ -65,6 +65,9 @@ PKGS=(
 'vlc'
 'wireguard-tools'
 'kmywallet'
+'sweet-kde-git'
+'sweet-kde-theme-mars-git'
+'sweet-kde-theme-nova-git'
 )
 
 
