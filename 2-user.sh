@@ -18,13 +18,9 @@ cd ${HOME}/yay
 makepkg -si --noconfirm
 cd ~
 
-# touch "$HOME/.cache/zshhistory"
-# git clone "https://github.com/ChrisTitusTech/zsh"
-# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
-# ln -s "$HOME/zsh/.zshrc" $HOME/.zshrc
-
 PKGS=(
 'autojump'
+'awesome-terminal-fonts'
 'firefox'
 'chromium'
 'dxvk-bin' # DXVK DirectX to Vulcan
@@ -69,7 +65,6 @@ PKGS=(
 'sweet-kde-theme-mars-git'
 'sweet-kde-theme-nova-git'
 )
-
 
 for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
